@@ -5,7 +5,7 @@ import { CheckSession } from './services/Auth'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
-import SignIp from './pages/SignIn'
+import SignIn from './pages/SignIn'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path='/' element = { <Home /> } />
           <Route path='/signup' element = { <SignUp /> }/>
-          <Route path='/signin' element = { <SignIp /> }/>
+          <Route path='/signin' element = { <SignIn /> }/>
         </Routes>
       </main>
     </>

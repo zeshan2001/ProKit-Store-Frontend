@@ -1,4 +1,4 @@
-const SignIp = () => {
+const SignIn = () => {
   return (
     <div>
       <form >
@@ -16,4 +16,4 @@ const SignIp = () => {
     </div>
   )
 }
-export default SignIp
+export default SignIn
