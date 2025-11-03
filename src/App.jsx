@@ -27,12 +27,12 @@ function App() {
 
   return (
     <>
-      <Nav />
+      <Nav user = {user} handleLogout = {handleLogout}/>
       <main>
         <Routes>
-          <Route path='/' element = { <Home /> } />
+          <Route path='/' element = { <Home user = { user }/> } />
           <Route path='/signup' element = { <SignUp /> }/>
-          <Route path='/signin' element = { <SignIn /> }/>
+          <Route path='/signin' element = { <SignIn setUser = { setUser }/> }/>
         </Routes>
       </main>
     </>

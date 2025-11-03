@@ -1,7 +1,11 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
+import { SignInUser } from '../services/Auth'
 
-const SignIn = () => {
+const SignIn = ({ setUser }) => {
+  const location = useLocation()
+  const message = location.state?.msg
+
   const initialState = {
     email: '',
     password: '',
@@ -13,9 +17,10 @@ const SignIn = () => {
   }
 
   let navigate = useNavigate()
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(formValues)
+    const payload = await SignInUser(formValues)
+    setUser(payload)
     setFormValues(initialState)
     navigate('/')
 
@@ -23,6 +28,7 @@ const SignIn = () => {
 
   return (
     <div>
+      {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email </label>

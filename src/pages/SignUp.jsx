@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { SignUpUser } from "../services/Auth"
 
 const SignUp = () => {
   const initialState = {
@@ -15,11 +16,16 @@ const SignUp = () => {
   }
 
   let navigate = useNavigate()
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(formValues)
+    await SignUpUser({
+      name: formValues.name,
+      email: formValues.email,
+      password: formValues.password
+    })
     setFormValues(initialState)
-    navigate('/signin')
+    navigate('/signin', {state: {msg: 'Registered successfully!'}})
   }
 
   return (
