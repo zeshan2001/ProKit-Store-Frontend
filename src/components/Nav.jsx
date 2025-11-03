@@ -4,11 +4,14 @@ const Nav = () => {
   return (
     <header>
       <nav>
-        <Link>Home</Link>
+        <Link to='/'>Home</Link>
       </nav>
       <nav>
-        <Link>Register</Link>
-        <Link>All</Link>
+        <Link>Category</Link>
+        <Link>Contact</Link>
+        <Link>About</Link>
+        <Link to='/signin'>Login</Link>
+        <Link to='/signup'>SignUp</Link>
       </nav>
     </header>
   )

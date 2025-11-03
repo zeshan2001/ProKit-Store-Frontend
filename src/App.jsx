@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import SignUp from './pages/SignUp'
+import SignIp from './pages/SignIn'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -29,6 +31,8 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element = { <Home /> } />
+          <Route path='/signup' element = { <SignUp /> }/>
+          <Route path='/signin' element = { <SignIp /> }/>
         </Routes>
       </main>
     </>
