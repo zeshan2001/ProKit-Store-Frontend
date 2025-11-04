@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import DetailProduct from './pages/DetailProduct'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -31,6 +32,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element = { <Home user = { user }/> } />
+          <Route path='/:productId' element = { <DetailProduct/> }/>
           <Route path='/signup' element = { <SignUp /> }/>
           <Route path='/signin' element = { <SignIn setUser = { setUser }/> }/>
         </Routes>
