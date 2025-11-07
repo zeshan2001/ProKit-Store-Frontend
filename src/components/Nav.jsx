@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 const Nav = ({ user, handleLogout }) => {
 
@@ -8,7 +9,8 @@ const Nav = ({ user, handleLogout }) => {
         <Link to='/'>Home</Link>
       </nav>
       <nav>
-        <Link>Category</Link>
+        <Link to='/products'>Kits</Link>
+
         <Link>Contact</Link>
         <Link>About</Link>
         <Link onClick={handleLogout} to='/'>Logout</Link>
@@ -33,7 +35,7 @@ const Nav = ({ user, handleLogout }) => {
         <Link to='/'>Home</Link>
       </nav>
       <nav>
-        <Link>Category</Link>
+        <Link to='/products'>Kits</Link>
         <Link>Contact</Link>
         <Link>About</Link>
         <Link to='/signin'>Login</Link>
