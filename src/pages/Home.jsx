@@ -1,4 +1,4 @@
-import Products from '../components/Products'
+import Products from './Products'
 
 const Home = ({user}) => {
   return <>
@@ -7,7 +7,7 @@ const Home = ({user}) => {
       {user && <p>GOOD TO SEE YOU {user.email}</p>}
     </div>
     <div>
-      <Products />
+      {/* <Products /> */}
     </div>
   </>
   

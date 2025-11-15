@@ -17,3 +17,11 @@ export const GetProductById = async (productId) => {
     throw error
   }
 }
+export const GetProductByCategory = async (category) => {
+  try {
+    const res = await Client.get(`/products/category/${category}`)
+    return res.data.products
+  } catch (error) {
+    throw error
+  }
+}
