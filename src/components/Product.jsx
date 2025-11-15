@@ -12,6 +12,8 @@ const Product = ({ product }) => {
     if (!isProductExist) {
       prevCart.push({
         _id: product._id,
+        name: product.name,
+        price: product.price,
         quantity: 1
       })
       setCart(prevCart)

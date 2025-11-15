@@ -1,6 +1,7 @@
 import { useParams, } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { GetProductById } from "../services/Product"
+import CartContext from "../contexts/Cart"
 
 const DetailProduct = () => {
   const {productId} = useParams()
@@ -14,13 +15,21 @@ const DetailProduct = () => {
     quantity > 0 && setQuantity(quantity - 1)
   }
 
-  const setCookie = () => { 
-    localStorage.setItem('cart', JSON.stringify(
-      {
+  const { cart, setCart, setCount } = useContext(CartContext)
+  
+  const toggleCart = () => {
+    const prevCart = cart
+    const isProductExist = prevCart.some(item => item._id === product._id)
+    if (!isProductExist) {
+      prevCart.push({
         _id: product._id,
+        name: product.name,
+        price: product.price,
         quantity: quantity
-      }
-    ))
+      })
+      setCart(prevCart)
+      setCount(cart.length)
+    }
   }
 
   useEffect(() =>{
@@ -44,7 +53,7 @@ const DetailProduct = () => {
           <button onClick={decreaseQuantity}>-</button>
         </div>
         <div>
-          <button onClick={setCookie()}>add to cart</button>
+          <button onClick={toggleCart}>add to cart</button>
         </div>
       </div>
     ) : (

@@ -12,7 +12,7 @@ const Nav = ({ user, handleLogout }) => {
       </nav>
       <nav>
 
-        <Link to='/Cart'><span>{count > 0 && count} </span>Cart</Link>
+        <Link to='/cart'><span>{count > 0 && count} </span>Cart</Link>
         <Link to='/products'>Kits</Link>
         <Link>Contact</Link>
         <Link>About</Link>
