@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import CartContext from "../contexts/Cart"
+import { useContext, useState } from "react"
 
 const Nav = ({ user, handleLogout }) => {
+  const { count } = useContext(CartContext)
 
   let userOptions = user && (user.role === "customer" ? (
     <header>
@@ -9,7 +11,8 @@ const Nav = ({ user, handleLogout }) => {
         <Link to='/'>Home</Link>
       </nav>
       <nav>
-        <Link to='/Cart'>Cart</Link>
+
+        <Link to='/Cart'><span>{count > 0 && count} </span>Cart</Link>
         <Link to='/products'>Kits</Link>
         <Link>Contact</Link>
         <Link>About</Link>

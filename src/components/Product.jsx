@@ -4,7 +4,7 @@ import CartContext from "../contexts/Cart"
 
 const Product = ({ product }) => {
 
-  const { cart, setCart } = useContext(CartContext)
+  const { cart, setCart, setCount } = useContext(CartContext)
   
   const toggleCart = () => {
     const prevCart = cart
@@ -15,6 +15,7 @@ const Product = ({ product }) => {
         quantity: 1
       })
       setCart(prevCart)
+      setCount(cart.length)
     }
   }
 
