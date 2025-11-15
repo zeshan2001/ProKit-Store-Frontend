@@ -9,8 +9,8 @@ const Nav = ({ user, handleLogout }) => {
         <Link to='/'>Home</Link>
       </nav>
       <nav>
+        <Link to='/Cart'>Cart</Link>
         <Link to='/products'>Kits</Link>
-
         <Link>Contact</Link>
         <Link>About</Link>
         <Link onClick={handleLogout} to='/'>Logout</Link>

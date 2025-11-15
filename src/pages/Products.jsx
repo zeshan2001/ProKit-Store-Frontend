@@ -16,7 +16,7 @@ const Products = () => {
     }
     getProducts()
   }, [])
-  
+
   const filterProductsByName = (products, keyword) => {
     return products.filter(product => product.name.toLowerCase().includes(keyword.toLowerCase()) )
   }
@@ -36,7 +36,7 @@ const Products = () => {
     products.length ? (
       <div>
         <div>
-          <input type="text" name="searcg" id="search" onChange={handleChange} value={searchQuery}/>
+          <input type="text" name="search" id="search" onChange={handleChange} value={searchQuery}/>
           <button onClick={getSearchResults}>Search</button>
         </div>
         {
@@ -51,12 +51,11 @@ const Products = () => {
           </div> ) : (
             <div>
               <h2>List of Products</h2>
-              <hr />
-              <div>
-                {products.map(
+                {
+                  products.map(
                     (product) => <Product key={product._id} product = {product}/>
-                    )}
-              </div>
+                    ) 
+                }
             </div>
           )
         }
